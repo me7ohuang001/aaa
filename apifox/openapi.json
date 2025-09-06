@@ -89,62 +89,6 @@
             },
             "headers": {},
             "x-apifox-name": "成功"
-          },
-          "400": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message"
-                  ],
-                  "x-apifox-orders": [
-                    "code",
-                    "message"
-                  ]
-                }
-              }
-            },
-            "headers": {},
-            "x-apifox-name": "参数不正确"
-          },
-          "404": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message"
-                  ],
-                  "x-apifox-orders": [
-                    "code",
-                    "message"
-                  ]
-                }
-              }
-            },
-            "headers": {},
-            "x-apifox-name": "记录不存在"
           }
         },
         "security": [],
