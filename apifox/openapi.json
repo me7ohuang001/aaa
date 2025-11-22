@@ -88,64 +88,77 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "成功"
+            "x-apifox-name": "成功",
+            "x-apifox-ordering": 0
           },
           "400": {
+            "$ref": "#/components/responses/参数不正确",
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "code",
-                    "message"
-                  ],
-                  "x-apifox-orders": [
-                    "code",
-                    "message"
-                  ]
-                }
-              }
-            },
-            "headers": {},
-            "x-apifox-name": "参数不正确"
+            "x-apifox-ordering": 2
           },
           "404": {
+            "$ref": "#/components/responses/记录不存在",
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
+            "x-apifox-ordering": 1
+          },
+          "x-apifox-additional-responses": [
+            {
+              "statusCode": 200,
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 0,
+                        "description": "状态码"
+                      },
+                      "data": {
+                        "$ref": "#/components/schemas/Pet",
+                        "description": "宠物信息"
+                      }
                     },
-                    "message": {
-                      "type": "string"
-                    }
+                    "required": [
+                      "code",
+                      "data"
+                    ],
+                    "x-apifox-orders": [
+                      "code",
+                      "data"
+                    ],
+                    "x-apifox-ignore-properties": []
                   },
-                  "required": [
-                    "code",
-                    "message"
-                  ],
-                  "x-apifox-orders": [
-                    "code",
-                    "message"
-                  ]
+                  "example": {
+                    "code": 0,
+                    "data": {
+                      "name": "Hello Kity",
+                      "photoUrls": [
+                        "http://dummyimage.com/400x400"
+                      ],
+                      "id": 3,
+                      "category": {
+                        "id": 71,
+                        "name": "Cat"
+                      },
+                      "tags": [
+                        {
+                          "id": 22,
+                          "name": "Cat"
+                        }
+                      ],
+                      "status": "sold"
+                    }
+                  }
                 }
-              }
-            },
-            "headers": {},
-            "x-apifox-name": "记录不存在"
-          }
+              },
+              "headers": {},
+              "x-apifox-name": "成功",
+              "x-apifox-ordering": 3
+            }
+          ]
         },
         "security": [],
         "x-apifox-folder": "示例项目",
@@ -207,7 +220,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "成功"
+            "x-apifox-name": "成功",
+            "x-apifox-ordering": 0
           }
         },
         "security": [],
@@ -302,7 +316,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "成功"
+            "x-apifox-name": "成功",
+            "x-apifox-ordering": 0
           }
         },
         "security": [],
@@ -378,7 +393,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "成功"
+            "x-apifox-name": "成功",
+            "x-apifox-ordering": 1
           },
           "404": {
             "description": "",
@@ -393,7 +409,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "记录不存在"
+            "x-apifox-name": "记录不存在",
+            "x-apifox-ordering": 2
           },
           "405": {
             "description": "",
@@ -408,7 +425,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "验证错误"
+            "x-apifox-name": "验证错误",
+            "x-apifox-ordering": 0
           }
         },
         "security": [],
@@ -492,7 +510,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "成功"
+            "x-apifox-name": "成功",
+            "x-apifox-ordering": 0
           },
           "400": {
             "description": "",
@@ -516,7 +535,8 @@
               }
             },
             "headers": {},
-            "x-apifox-name": "错误的 status 值"
+            "x-apifox-name": "错误的 status 值",
+            "x-apifox-ordering": 1
           }
         },
         "security": [],
@@ -639,6 +659,60 @@
         ],
         "x-apifox-ignore-properties": [],
         "x-apifox-folder": "示例数据模型"
+      }
+    },
+    "responses": {
+      "记录不存在": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ],
+              "x-apifox-orders": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        }
+      },
+      "参数不正确": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ],
+              "x-apifox-orders": [
+                "code",
+                "message"
+              ]
+            }
+          }
+        }
       }
     },
     "securitySchemes": {}
